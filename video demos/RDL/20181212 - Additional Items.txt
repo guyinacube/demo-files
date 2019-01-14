@@ -1,0 +1,9 @@
+Sum:  https://docs.microsoft.com/en-us/sql/reporting-services/report-design/report-builder-functions-sum-function?view=sql-server-2017
+
+Sales = FORMAT(C0)
+Quota = FORMAT(C0)
+country %=Sum(Fields!Sales.Value) / Sum(Fields!Sales.Value, "SalesTerritoryCountry") FORMAT(P2)
+
+overall %=Sum(Fields!Sales.Value) / Sum(Fields!Sales.Value, "dsCountrySales") FORMAT(P2)
+
+variance =(Sum(Fields!Sales.Value)-Sum(Fields!Quota.Value))/Sum(Fields!Quota.Value) FORMAT(P2)
