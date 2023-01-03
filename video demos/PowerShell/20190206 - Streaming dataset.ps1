@@ -9,7 +9,7 @@ while ($true) {
     $Memory = (($UsedMemory / $ComputerMemory.TotalVisibleMemorySize) * 100)
     $RoundMemory = [math]::Round($Memory, 2)
 
-    $DateTime = Get-Date -DisplayHint Date -Format "yyyy-MM-ddThh:mm:ss"
+    $DateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss")
 
     #$RoundMemory
     #$ComputerCPU 
