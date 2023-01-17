@@ -1,33 +1,28 @@
 $endpoint = "[your endpoint here]"
 
-while($true)
-{
+while ($true) {
 
     $ComputerCPU = (Get-WmiObject  -Class win32_processor -ErrorAction Stop | Measure-Object -Property LoadPercentage -Average | Select-Object Average).Average
 
     $ComputerMemory = Get-WmiObject  -Class win32_operatingsystem -ErrorAction Stop
     $UsedMemory = $ComputerMemory.TotalVisibleMemorySize - $ComputerMemory.FreePhysicalMemory
-    $Memory = (($UsedMemory/ $ComputerMemory.TotalVisibleMemorySize)*100)
+    $Memory = (($UsedMemory / $ComputerMemory.TotalVisibleMemorySize) * 100)
     $RoundMemory = [math]::Round($Memory, 2)
 
-    $Date = Get-Date -DisplayHint Date -Format MM/dd/yyyy
-
-    $Time = Get-Date -DisplayHint Time -Format HH:mm:ss
+    $DateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss")
 
     #$RoundMemory
     #$ComputerCPU 
-    #$Date
-    #$Time
+    #$DateTime
 
     $payload = @{
-    "Date" =$Date
-    "Time" =$Time
-    "CPU" = $ComputerCPU
-    "Memory" = $RoundMemory
+        "DateTime" = $DateTime
+        "CPU"      = $ComputerCPU
+        "Memory"   = $RoundMemory
     }
     Invoke-RestMethod -Method Post -Uri "$endpoint" -Body (ConvertTo-Json @($payload))
 
-    Write-Host "Date: " $Date " Time: " $Time " CPU: " $ComputerCPU " Memory: " $RoundMemory
+    Write-Host "DateTime: " $DateTime " CPU: " $ComputerCPU " Memory: " $RoundMemory
     
-    sleep 2
+    Start-Sleep 2
 }
