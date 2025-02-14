@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "gold_process_Video_Details"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cd7accdd-a5be-9203-4065-344bb7a92901"
+  }
+}

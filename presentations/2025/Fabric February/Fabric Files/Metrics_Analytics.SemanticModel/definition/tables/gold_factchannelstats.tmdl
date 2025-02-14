@@ -1,0 +1,68 @@
+table gold_factchannelstats
+	lineageTag: d3d9580e-b692-48ae-9842-fb7dcbbfb863
+	sourceLineageTag: [dbo].[gold_factchannelstats]
+
+	column CaptureDateSK
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 92a1589a-5dc8-4b6c-9d8a-8ed9ea4bfaec
+		sourceLineageTag: CaptureDateSK
+		summarizeBy: none
+		sourceColumn: CaptureDateSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0aea3b8e-f206-4995-9d56-3c44209dbc1a
+		sourceLineageTag: ChannelSK
+		summarizeBy: none
+		sourceColumn: ChannelSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubscriberCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6ef8cdc0-488f-483a-8c0e-c514a570bdf0
+		sourceLineageTag: SubscriberCount
+		summarizeBy: sum
+		sourceColumn: SubscriberCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column ViewCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7402cfbe-fcf0-4fb3-bd6d-3e64a180c4fa
+		sourceLineageTag: ViewCount
+		summarizeBy: sum
+		sourceColumn: ViewCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column VideoCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 31cf5589-cb3b-46b3-80b9-5a6d43d27fae
+		sourceLineageTag: VideoCount
+		summarizeBy: sum
+		sourceColumn: VideoCount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_factchannelstats = entity
+		mode: directLake
+		source
+			entityName: gold_factchannelstats
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

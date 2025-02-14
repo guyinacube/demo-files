@@ -1,0 +1,116 @@
+table DimVideo
+	lineageTag: 5afe6cca-8893-49a0-b976-86668961f704
+	sourceLineageTag: [dbo].[DimVideo]
+
+	column VideoSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 11ac0c15-9bd0-4de0-8f71-cebb8eb1de75
+		sourceLineageTag: VideoSK
+		summarizeBy: sum
+		sourceColumn: VideoSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 89eaa62e-343f-4bbb-8811-6242a38164fa
+		sourceLineageTag: ChannelSK
+		summarizeBy: sum
+		sourceColumn: ChannelSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column VideoAK
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: db86c757-8b53-41c4-90a6-3e3e7a55aed2
+		sourceLineageTag: VideoAK
+		summarizeBy: none
+		sourceColumn: VideoAK
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(150)
+		lineageTag: c32e2674-f229-4152-b967-5d51810a95ac
+		sourceLineageTag: Title
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descr
+		dataType: string
+		sourceProviderType: varchar(5000)
+		lineageTag: b90707a0-1cf6-43e3-a5bb-54482615c041
+		sourceLineageTag: Descr
+		summarizeBy: none
+		sourceColumn: Descr
+
+		annotation SummarizationSetBy = Automatic
+
+	column LiveStream
+		dataType: string
+		sourceProviderType: varchar(10)
+		lineageTag: 26e701ce-00bd-4c32-8062-36bdaebf00ba
+		sourceLineageTag: LiveStream
+		summarizeBy: none
+		sourceColumn: LiveStream
+
+		annotation SummarizationSetBy = Automatic
+
+	column PusblishedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: ee6d42dd-efe1-4985-ae13-dfa761f483b9
+		sourceLineageTag: PusblishedDate
+		summarizeBy: none
+		sourceColumn: PusblishedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hosts
+		dataType: string
+		sourceProviderType: varchar(75)
+		lineageTag: 4e48f7bd-7d67-493f-9768-6ee6d1996ee7
+		sourceLineageTag: Hosts
+		summarizeBy: none
+		sourceColumn: Hosts
+
+		annotation SummarizationSetBy = Automatic
+
+	column VideoURL
+		dataType: string
+		sourceProviderType: varchar(150)
+		lineageTag: 030f6cab-572b-4e92-a765-2425bacdd579
+		sourceLineageTag: VideoURL
+		summarizeBy: none
+		sourceColumn: VideoURL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ThumbNailURL
+		dataType: string
+		sourceProviderType: varchar(150)
+		lineageTag: 6d33e66b-4507-49cd-8d2a-ed4a2f9a89b4
+		sourceLineageTag: ThumbNailURL
+		summarizeBy: none
+		sourceColumn: ThumbNailURL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimVideo = entity
+		mode: directLake
+		source
+			entityName: DimVideo
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

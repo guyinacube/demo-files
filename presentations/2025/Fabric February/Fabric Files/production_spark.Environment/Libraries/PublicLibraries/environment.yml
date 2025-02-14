@@ -1,0 +1,4 @@
+dependencies:
+  - pip:
+      - google-api-python-client==2.160.0
+      - azure-eventhub==5.13.0

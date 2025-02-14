@@ -1,0 +1,114 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.61\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"relationships\":[{\"source\":\"3a68096e83e30523235c\",\"target\":\"3296434805c8a00901aa\",\"type\":3},{\"source\":\"3a68096e83e30523235c\",\"target\":\"ef193a78a140cd3c8c08\",\"type\":3},{\"source\":\"8b92b571ccc98ada2442\",\"target\":\"ef193a78a140cd3c8c08\",\"type\":3},{\"source\":\"d623f404a0b9cc461de0\",\"target\":\"3a68096e83e30523235c\",\"type\":3}]}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "3ded1ccba0e010457a48",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3296434805c8a00901aa\",\"layouts\":[{\"id\":0,\"position\":{\"x\":757.2391737673317,\"y\":0,\"z\":2000,\"width\":240.45035375550347,\"height\":102.28112062734102}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"gold_dimvideos.video_count\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimvideos\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"video_count\"},\"Name\":\"gold_dimvideos.video_count\",\"NativeReferenceName\":\"video_count\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"video_count\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 102.28,
+          "width": 240.45,
+          "x": 757.24,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"3a68096e83e30523235c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":252.8395061728395,\"z\":5000,\"width\":526.2222222222222,\"height\":432.98765432098764}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"gold_dimvideos.Title\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimvideos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Title\"},\"Name\":\"gold_dimvideos.Title\",\"NativeReferenceName\":\"Title\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"selfFilterEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimvideos\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Title\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Convert CSV to Parquet using pySpark in Azure Synapse Analytics'\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 432.99,
+          "width": 526.22,
+          "x": 0.00,
+          "y": 252.84,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"7029c2bc0c56a70ae5a7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":676.3456790123457,\"y\":649.4814814814815,\"z\":6000,\"width\":603.6543209876543,\"height\":71.11111111111111}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"gold_dimvideo_details.Display Video URL\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimvideo_details\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Display Video URL\"},\"Name\":\"gold_dimvideo_details.Display Video URL\",\"NativeReferenceName\":\"Display Video URL\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnHeaders\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"grid\":[{\"properties\":{\"gridHorizontalColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}}}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'None'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 71.11,
+          "width": 603.65,
+          "x": 676.35,
+          "y": 649.48,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"8b92b571ccc98ada2442\",\"layouts\":[{\"id\":0,\"position\":{\"x\":17.35997796096548,\"y\":0,\"z\":1000,\"width\":281.23164296764077,\"height\":170.12778401746172}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"gold_dimvideos.Hosts\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimvideos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Hosts\"},\"Name\":\"gold_dimvideos.Hosts\",\"NativeReferenceName\":\"Hosts\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimvideos\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Hosts\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Patrick LeBlanc'\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 170.13,
+          "width": 281.23,
+          "x": 17.36,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"abbd7dda6a28a15ab476\",\"layouts\":[{\"id\":0,\"position\":{\"x\":439.3207761086346,\"y\":0,\"z\":0,\"width\":282.59012084825684,\"height\":168.6041897498003}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"gold_dimchannels.ChannelName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimchannels\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"ChannelName\"},\"Name\":\"gold_dimchannels.ChannelName\",\"NativeReferenceName\":\"ChannelName\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimchannels\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"ChannelName\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Guy in a Cube'\"}}]]}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 168.60,
+          "width": 282.59,
+          "x": 439.32,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d623f404a0b9cc461de0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":648.8888888888889,\"y\":232.88888888888889,\"z\":4000,\"width\":631.1111111111111,\"height\":417.77777777777777}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"gold_dimvideo_details.ThumbNailURL\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimvideo_details\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"ThumbNailURL\"},\"Name\":\"gold_dimvideo_details.ThumbNailURL\",\"NativeReferenceName\":\"ThumbNailURL\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"ThumbNailURL\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"559.277076177192D\"}}}},\"selector\":{\"metadata\":\"gold_dimvideo_details.ThumbNailURL\"}}],\"grid\":[{\"properties\":{\"imageHeight\":{\"expr\":{\"Literal\":{\"Value\":\"512D\"}}}}}],\"columnHeaders\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"autoSizeColumnWidth\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"total\":[{\"properties\":{\"totals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'None'\"}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 417.78,
+          "width": 631.11,
+          "x": 648.89,
+          "y": 232.89,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"de3731b2b7b032953767\",\"layouts\":[{\"id\":0,\"position\":{\"x\":776.5291556082352,\"y\":102.112396609034,\"z\":6001,\"width\":488.0022675152671,\"height\":150.79388801566648}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"gold_calendar.Date\",\"active\":true}],\"Y\":[{\"queryRef\":\"gold_factdailyvideostats.daily views\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_calendar\",\"Type\":0},{\"Name\":\"g1\",\"Entity\":\"gold_factdailyvideostats\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Date\"},\"Name\":\"gold_calendar.Date\",\"NativeReferenceName\":\"Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g1\"}},\"Property\":\"daily views\"},\"Name\":\"gold_factdailyvideostats.daily views\",\"NativeReferenceName\":\"daily views\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"lineStyles\":[{\"properties\":{\"lineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'solid'\"}}},\"lineChartType\":{\"expr\":{\"Literal\":{\"Value\":\"'smooth'\"}}},\"interpolationSmooth\":{\"expr\":{\"Literal\":{\"Value\":\"'monotoneX'\"}}},\"interpolationSmoothParam\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 150.79,
+          "width": 488.00,
+          "x": 776.53,
+          "y": 102.11,
+          "z": 6001.00
+        },
+        {
+          "config": "{\"name\":\"e7364b99e3b5623eea6b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1038.9608568987799,\"y\":17.944056250410707,\"z\":6002,\"width\":240.45035375550347,\"height\":102.28112062734102}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"gold_factdailyvideostats.daily views\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g1\",\"Entity\":\"gold_factdailyvideostats\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g1\"}},\"Property\":\"daily views\"},\"Name\":\"gold_factdailyvideostats.daily views\",\"NativeReferenceName\":\"daily views\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g1\"}},\"Property\":\"daily views\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 102.28,
+          "width": 240.45,
+          "x": 1038.96,
+          "y": 17.94,
+          "z": 6002.00
+        },
+        {
+          "config": "{\"name\":\"ef193a78a140cd3c8c08\",\"layouts\":[{\"id\":0,\"position\":{\"x\":213.33333333333334,\"y\":0,\"z\":3000,\"width\":169.08641975308643,\"height\":135.90123456790124}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"gold_dimvideos.LiveStream\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"gold_dimvideos\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"LiveStream\"},\"Name\":\"gold_dimvideos.LiveStream\",\"NativeReferenceName\":\"LiveStream\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 135.90,
+          "width": 169.09,
+          "x": 213.33,
+          "y": 0.00,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

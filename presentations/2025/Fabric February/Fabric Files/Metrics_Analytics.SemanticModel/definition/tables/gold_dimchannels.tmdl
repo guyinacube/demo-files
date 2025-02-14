@@ -1,0 +1,63 @@
+table gold_dimchannels
+	lineageTag: 3773d252-c0d0-4fd7-9615-8e608f6581af
+	sourceLineageTag: [dbo].[gold_dimchannels]
+
+	column ChannelSK
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6ed64012-5fb3-4fbb-a7ea-5670120b427d
+		sourceLineageTag: ChannelSK
+		summarizeBy: none
+		sourceColumn: ChannelSK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelAK
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: 7a7efe14-5a19-40ae-b80f-e5dcd11d55dc
+		sourceLineageTag: ChannelAK
+		summarizeBy: none
+		sourceColumn: ChannelAK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlayListID
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: f68de98f-b6b9-4511-ae51-6a5c2e086ae9
+		sourceLineageTag: PlayListID
+		summarizeBy: none
+		sourceColumn: PlayListID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: da7bacdd-50da-4c04-acec-9a947642c22f
+		sourceLineageTag: ChannelName
+		summarizeBy: none
+		sourceColumn: ChannelName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dimchannels = entity
+		mode: directLake
+		source
+			entityName: gold_dimchannels
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

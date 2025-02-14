@@ -1,0 +1,62 @@
+{
+  "formatVersion": "202409",
+  "lastModified": null,
+  "editingSession": {
+    "computeEngineSettings": {},
+    "editingSessionMashup": {
+      "mashupName": "gold_process_Video_Details",
+      "queryGroups": [],
+      "documentLocale": "en-US",
+      "queriesMetadata": {
+        "gold_dimvideos": {
+          "queryId": "95adc24a-f7a6-40ec-bce8-f44aefb64791",
+          "queryName": "gold_dimvideos",
+          "queryGroupId": null,
+          "entityName": null,
+          "lastKnownIsCalculatedEntity": null,
+          "lastKnownIsLinkedEntity": null,
+          "lastKnownIsParameter": null,
+          "isHidden": false,
+          "lastKnownResultTypeName": null,
+          "loadEnabled": false,
+          "fieldsMetadata": {},
+          "deleteExistingDataOnLoad": false,
+          "hostProperties": {},
+          "jsonOutputDestinations": "{\"Destinations\":[{\"UpdateMethod\":{\"Kind\":\"Replace\"},\"ColumnMappings\":{\"Kind\":\"Fixed\",\"ColumnMappingPairs\":[{\"SourceColumnName\":\"VideoSK\",\"DestinationColumnName\":\"VideoSK\"},{\"SourceColumnName\":\"VideoAK\",\"DestinationColumnName\":\"VideoAK\"},{\"SourceColumnName\":\"VideoURL\",\"DestinationColumnName\":\"VideoURL\"},{\"SourceColumnName\":\"ThumbNailURL\",\"DestinationColumnName\":\"ThumbNailURL\"}]},\"Destination\":{\"Kind\":\"Script\",\"Script\":\"let\\r\\n  Pattern = Lakehouse.Contents([CreateNavigationProperties = false]),\\r\\n  Navigation_1 = Pattern{[workspaceId = \\\"97dc8aaf-6f99-4fee-ae59-a4f47ec3c596\\\"]}[Data],\\r\\n  Navigation_2 = Navigation_1{[lakehouseId = \\\"7753f722-3ed4-4d13-a8d7-a58129461435\\\"]}[Data],\\r\\n  TableNavigation = Navigation_2{[Id = \\\"gold_dimvideo_details\\\", ItemKind = \\\"Table\\\"]}?[Data]?\\r\\nin\\r\\n  TableNavigation\",\"IsNewTarget\":true}}]}",
+          "bindToDefaultOutputDestination": null,
+          "jsonIncrementalRefreshSettings": null
+        }
+      },
+      "connectionOverrides": [
+        {
+          "path": "Lakehouse",
+          "kind": "Lakehouse",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"35dfb11d-28f4-44f3-890a-8c94b64d27d8\",\"DatasourceId\":\"3ba30ca3-92a4-481b-acf7-8772f3d2230e\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        }
+      ],
+      "trustedConnections": [
+        {
+          "path": "Lakehouse",
+          "kind": "Lakehouse",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"35dfb11d-28f4-44f3-890a-8c94b64d27d8\",\"DatasourceId\":\"3ba30ca3-92a4-481b-acf7-8772f3d2230e\"}",
+          "credentialDetails": {},
+          "connectionParameters": {},
+          "privacyGroup": "None"
+        }
+      ],
+      "useHostConnectionProvider": false,
+      "fastCombine": false,
+      "allowNativeQueries": true,
+      "skipAutomaticTypeAndHeaderDetection": false,
+      "hostProperties": {
+        "dataflowRefreshOutputFileFormat": "Parquet",
+        "enableDateTimeFieldsForStaging": "true",
+        "enablePublishWithoutLoadedQueries": "true"
+      }
+    }
+  }
+}

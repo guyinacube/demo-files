@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Video Search and Stats"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f4b32e2f-71f0-a800-463c-fffb68ec054c"
+  }
+}

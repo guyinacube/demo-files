@@ -1,0 +1,79 @@
+table gold_dimvideo_details
+	lineageTag: f8159d3e-e117-450e-afa3-0b19c02fc6db
+	sourceLineageTag: [dbo].[gold_dimvideo_details]
+
+	measure 'Display Video URL' =
+			
+			var _selecturl = SELECTEDVALUE(gold_dimvideo_details[VideoURL])
+			var _return = IF(HASONEFILTER(gold_dimvideos[Title]), _selecturl, "Please select video title from slicer")
+			return
+			_return
+		lineageTag: 3bd611db-8feb-4b77-bcd9-9bc171d97337
+		dataCategory: WebUrl
+
+		changedProperty = Name
+
+		changedProperty = DataCategory
+
+	column VideoSK
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4bf40728-9909-45be-8d2b-6198015a3e42
+		sourceLineageTag: VideoSK
+		summarizeBy: none
+		sourceColumn: VideoSK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column VideoAK
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: c21b5260-4fe9-46e5-a9bd-09b7869c98e6
+		sourceLineageTag: VideoAK
+		summarizeBy: none
+		sourceColumn: VideoAK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column VideoURL
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 23b29671-856d-45bf-bbba-0fb61077f42e
+		sourceLineageTag: VideoURL
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: VideoURL
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column ThumbNailURL
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8eef5c71-f21a-465a-b837-615fbc174380
+		sourceLineageTag: ThumbNailURL
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: ThumbNailURL
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dimvideo_details = entity
+		mode: directLake
+		source
+			entityName: gold_dimvideo_details
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

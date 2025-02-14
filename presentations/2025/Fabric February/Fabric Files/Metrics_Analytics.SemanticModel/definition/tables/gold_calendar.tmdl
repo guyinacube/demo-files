@@ -1,0 +1,115 @@
+table gold_calendar
+	lineageTag: 22bf6547-2df9-44f0-a492-96265d1c0bf6
+	sourceLineageTag: [dbo].[gold_calendar]
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: d8f4e033-edbe-43f6-b5d3-dd02d37278b0
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ceb6ea44-461f-46c9-8c41-f38f96dce65b
+		sourceLineageTag: Year
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9fd53940-3c70-447f-b5c2-bdfee0f6eeb0
+		sourceLineageTag: MonthName
+		summarizeBy: none
+		sourceColumn: MonthName
+		sortByColumn: MonthNumber
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNameAbbrev
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d4518762-6ce3-437f-9f55-206b1382a332
+		sourceLineageTag: MonthNameAbbrev
+		summarizeBy: none
+		sourceColumn: MonthNameAbbrev
+		sortByColumn: MonthNumber
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: afa6a99b-3cd8-4b7c-8762-1ec6b2985720
+		sourceLineageTag: MonthNumber
+		summarizeBy: sum
+		sourceColumn: MonthNumber
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 267c0e75-d7a3-49a0-ad99-1d2f20f405bd
+		sourceLineageTag: DayOfWeek
+		summarizeBy: sum
+		sourceColumn: DayOfWeek
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2eec9e53-9ec7-47f3-8a51-13bca2b1fa73
+		sourceLineageTag: DayName
+		summarizeBy: none
+		sourceColumn: DayName
+		sortByColumn: DayOfWeek
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayNameAbbrev
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 122b678e-5f97-412c-89f9-175f872d8754
+		sourceLineageTag: DayNameAbbrev
+		summarizeBy: none
+		sourceColumn: DayNameAbbrev
+		sortByColumn: DayOfWeek
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_calendar = entity
+		mode: directLake
+		source
+			entityName: gold_calendar
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

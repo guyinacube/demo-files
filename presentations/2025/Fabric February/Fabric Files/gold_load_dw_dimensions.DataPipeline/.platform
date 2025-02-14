@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "gold_load_dw_dimensions"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0c4a379d-1958-a075-400a-70d15fd446fb"
+  }
+}

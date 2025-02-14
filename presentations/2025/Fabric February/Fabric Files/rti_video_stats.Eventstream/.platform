@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Eventstream",
+    "displayName": "rti_video_stats"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cd878ab8-2155-ae56-407f-f9e1599921b4"
+  }
+}

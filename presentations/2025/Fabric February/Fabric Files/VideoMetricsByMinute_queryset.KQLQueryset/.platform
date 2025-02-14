@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLQueryset",
+    "displayName": "VideoMetricsByMinute_queryset",
+    "description": "VideoMetricsByMinute_queryset"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "427fd727-34e0-981b-4dbe-c0b20811d97d"
+  }
+}
