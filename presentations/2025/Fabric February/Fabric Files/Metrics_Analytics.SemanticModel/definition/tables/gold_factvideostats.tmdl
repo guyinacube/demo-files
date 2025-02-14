@@ -1,0 +1,113 @@
+table gold_factvideostats
+	lineageTag: 77f65ccf-294b-470c-8aa8-746e62e6d0b5
+	sourceLineageTag: [dbo].[gold_factvideostats]
+
+	measure 'total views' = ```
+			var _lastdate = LASTDATE(gold_factvideostats[CaptureDateSK])
+			var _result = CALCULATE(sum(gold_factvideostats[ViewCount]), _lastdate)
+			RETURN
+			_result
+			
+			
+			```
+		formatString: #,0
+		lineageTag: 9228140c-52a8-4756-b1c9-8ffd8c617490
+
+		changedProperty = FormatString
+
+	measure 'avg total views' = ```
+			
+			CALCULATE(AVERAGE(gold_factvideostats[ViewCount]), LASTDATE(gold_factvideostats[CaptureDateSK]))
+			
+			```
+		formatString: #,0
+		lineageTag: 08f83105-4e2a-41c7-bc2f-e5dad34845c5
+
+		changedProperty = FormatString
+
+	column VideoSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5e037da2-881c-4515-ab2a-9aba49c7b0fe
+		sourceLineageTag: VideoSK
+		summarizeBy: none
+		sourceColumn: VideoSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column CaptureDateSK
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: fabee446-05a5-4a03-8e73-99974c4cb072
+		sourceLineageTag: CaptureDateSK
+		summarizeBy: none
+		sourceColumn: CaptureDateSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b1fc3081-c7a0-4d8d-80b9-7a253729bc3b
+		sourceLineageTag: ChannelSK
+		summarizeBy: sum
+		sourceColumn: ChannelSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column LikeCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8b577000-7ed8-4a5c-a084-300a7230a870
+		sourceLineageTag: LikeCount
+		summarizeBy: sum
+		sourceColumn: LikeCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column FavoriteCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 951bc647-a0b9-43ea-b051-ef3c403bb85c
+		sourceLineageTag: FavoriteCount
+		summarizeBy: sum
+		sourceColumn: FavoriteCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommentCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d441fb29-e488-4320-821e-97142b1834c0
+		sourceLineageTag: CommentCount
+		summarizeBy: sum
+		sourceColumn: CommentCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column ViewCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 04b8b1e1-5cfe-4630-924d-da2beddf2278
+		sourceLineageTag: ViewCount
+		summarizeBy: sum
+		sourceColumn: ViewCount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_factvideostats = entity
+		mode: directLake
+		source
+			entityName: gold_factvideostats
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

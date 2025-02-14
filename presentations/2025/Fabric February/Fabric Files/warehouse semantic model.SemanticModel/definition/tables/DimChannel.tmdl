@@ -1,0 +1,65 @@
+table DimChannel
+	lineageTag: 99bdc16b-fa49-4cbb-9409-7f502876acd0
+	sourceLineageTag: [dbo].[DimChannel]
+
+	column ChannelSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0552104f-00aa-4cee-8896-e70636ee0578
+		sourceLineageTag: ChannelSK
+		summarizeBy: sum
+		sourceColumn: ChannelSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelAK
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 8d534030-07dd-4504-b7fd-e3ce0d5ccadc
+		sourceLineageTag: ChannelAK
+		summarizeBy: none
+		sourceColumn: ChannelAK
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlayListID
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: 9c01cf23-5e7a-46f6-863e-d743a9a0acb1
+		sourceLineageTag: PlayListID
+		summarizeBy: none
+		sourceColumn: PlayListID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelName
+		dataType: string
+		sourceProviderType: varchar(75)
+		lineageTag: fffb1e64-4c86-48ce-8d01-78b5e3cec92e
+		sourceLineageTag: ChannelName
+		summarizeBy: none
+		sourceColumn: ChannelName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CaptureDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 3a5893df-ffb2-4d1a-985e-f70832691a88
+		sourceLineageTag: CaptureDate
+		summarizeBy: none
+		sourceColumn: CaptureDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimChannel = entity
+		mode: directLake
+		source
+			entityName: DimChannel
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

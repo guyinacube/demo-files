@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Environment",
+    "displayName": "production_spark",
+    "description": "Environment"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "69352a15-65d1-ad42-4a6a-a487cbf38053"
+  }
+}

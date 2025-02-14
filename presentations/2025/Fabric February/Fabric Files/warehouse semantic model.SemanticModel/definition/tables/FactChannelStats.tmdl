@@ -1,0 +1,68 @@
+table FactChannelStats
+	lineageTag: 9346acc8-5756-4947-9b1b-4f72761673ca
+	sourceLineageTag: [dbo].[FactChannelStats]
+
+	column CaptureDateSK
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: eb2e5679-ee21-464b-b465-5d8324a31aaf
+		sourceLineageTag: CaptureDateSK
+		summarizeBy: none
+		sourceColumn: CaptureDateSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelSK
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 79a37ada-101c-4c1a-a8e5-5626320cbb2e
+		sourceLineageTag: ChannelSK
+		summarizeBy: sum
+		sourceColumn: ChannelSK
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubscriberCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b37ac5b7-e6e5-4e59-8606-2628f737bdd6
+		sourceLineageTag: SubscriberCount
+		summarizeBy: sum
+		sourceColumn: SubscriberCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column ViewCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 434e9777-3546-436f-8a98-c3d32caad41c
+		sourceLineageTag: ViewCount
+		summarizeBy: sum
+		sourceColumn: ViewCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column VideoCount
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 0f3c9a46-51b0-45ce-8120-991545b8bda5
+		sourceLineageTag: VideoCount
+		summarizeBy: sum
+		sourceColumn: VideoCount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactChannelStats = entity
+		mode: directLake
+		source
+			entityName: FactChannelStats
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

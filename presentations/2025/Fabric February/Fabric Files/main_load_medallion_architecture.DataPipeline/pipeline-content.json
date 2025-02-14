@@ -1,0 +1,140 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "f6dcac65-db3d-b723-454c-3407c9085056",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1afe014a-ad3d-49a0-8b35-e9c2b0f27506"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "load bronze layer",
+        "dependsOn": []
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "f189f29d-b10e-9d3c-479d-e9b9355ce4a7",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1afe014a-ad3d-49a0-8b35-e9c2b0f27506"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "load silver layer",
+        "dependsOn": [
+          {
+            "activity": "load bronze layer",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "a57e2d2e-dedc-a128-4894-61c436338251",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1afe014a-ad3d-49a0-8b35-e9c2b0f27506"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "load dimension gold layer",
+        "dependsOn": [
+          {
+            "activity": "load silver layer",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "channelId": "19:C3DLw9bcoSxi-B_c3JqY22m54hL_ZMFX2IDIb5CjGbE1@thread.tacv2",
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602"
+              },
+              "messageBody": "<p>This succeeeded @{activity('load dimension gold layer').output}</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Teams1",
+        "dependsOn": [
+          {
+            "activity": "load dimension gold layer",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "9616361a-a0af-864d-4fb6-db71a24e6a8f",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1afe014a-ad3d-49a0-8b35-e9c2b0f27506"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "load fact gold layer",
+        "dependsOn": [
+          {
+            "activity": "Teams1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

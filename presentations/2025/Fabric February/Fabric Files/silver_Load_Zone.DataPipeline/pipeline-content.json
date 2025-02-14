@@ -1,0 +1,294 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "79ab25a4-c6a7-85d2-437b-55de6ab20cb0",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Process Channels",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "513d744c-3b33-bf56-4151-4c9853c8a264",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Process Channel Statistics",
+        "dependsOn": []
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:C3DLw9bcoSxi-B_c3JqY22m54hL_ZMFX2IDIb5CjGbE1@thread.tacv2"
+              },
+              "messageBody": "<p>Channels Loaded to Silver Successfully!</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Channels Loaded to Silver",
+        "dependsOn": [
+          {
+            "activity": "Process Channels",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:C3DLw9bcoSxi-B_c3JqY22m54hL_ZMFX2IDIb5CjGbE1@thread.tacv2"
+              },
+              "messageBody": "<p>Channel Stats Loaded to Silver Successfully!</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Channel Stats Loaded to Silver",
+        "dependsOn": [
+          {
+            "activity": "Process Channel Statistics",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:2ea202a24d47463aaa82d298dcfbed48@thread.tacv2"
+              },
+              "messageBody": "<p>Channels failed to load to Silver!</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Channels Failed Silver Load",
+        "dependsOn": [
+          {
+            "activity": "Process Channels",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:2ea202a24d47463aaa82d298dcfbed48@thread.tacv2"
+              },
+              "messageBody": "<p>Channel Stats failed to load to Silver!</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Channel Stats Failed Silver Load",
+        "dependsOn": [
+          {
+            "activity": "Process Channel Statistics",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "ff747551-271f-a06f-4522-47af821d021e",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Process Video",
+        "dependsOn": []
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:C3DLw9bcoSxi-B_c3JqY22m54hL_ZMFX2IDIb5CjGbE1@thread.tacv2"
+              },
+              "messageBody": "<p>Videos Loaded to Silver Successfully!</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Vidoes Loaded to Silver",
+        "dependsOn": [
+          {
+            "activity": "Process Video",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:2ea202a24d47463aaa82d298dcfbed48@thread.tacv2"
+              },
+              "messageBody": "<p>Videos failed to load to Silver!</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Videos Failed Silver Load",
+        "dependsOn": [
+          {
+            "activity": "Process Video",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "a47b0455-7be6-a835-493d-82d780a1fa57",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Process Video Stats",
+        "dependsOn": []
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:C3DLw9bcoSxi-B_c3JqY22m54hL_ZMFX2IDIb5CjGbE1@thread.tacv2"
+              },
+              "messageBody": "<p>VideoStats Loaded to Silver Successfully!</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "VidoeStats Loaded to Silver",
+        "dependsOn": [
+          {
+            "activity": "Process Video Stats",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:2ea202a24d47463aaa82d298dcfbed48@thread.tacv2"
+              },
+              "messageBody": "<p>VideoStats failed to load in Silver Zone</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "VideoStats Failed Silver",
+        "dependsOn": [
+          {
+            "activity": "Process Video Stats",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

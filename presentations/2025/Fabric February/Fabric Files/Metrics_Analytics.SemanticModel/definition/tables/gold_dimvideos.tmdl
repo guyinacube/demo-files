@@ -1,0 +1,118 @@
+table gold_dimvideos
+	lineageTag: 0098c81e-a8f0-46b7-991e-7ba755219574
+	sourceLineageTag: [dbo].[gold_dimvideos]
+
+	measure video_count = ```
+			
+			COUNT(gold_dimvideos[VideoAK])
+			
+			```
+		formatString: #,0
+		lineageTag: a02753cd-5648-45b0-a446-46f0693b8980
+
+		changedProperty = FormatString
+
+	column VideoSK
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4429dab9-ac23-4a9b-a8dc-4895e078123d
+		sourceLineageTag: VideoSK
+		summarizeBy: none
+		sourceColumn: VideoSK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChannelSK
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 06ee2318-0eb0-419b-87b7-b7921bdbfac8
+		sourceLineageTag: ChannelSK
+		summarizeBy: none
+		sourceColumn: ChannelSK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column VideoAK
+		dataType: string
+		isHidden
+		sourceProviderType: varchar(8000)
+		lineageTag: 12806809-e060-4027-a8fb-71b4c24e606e
+		sourceLineageTag: VideoAK
+		summarizeBy: none
+		sourceColumn: VideoAK
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d62c480c-8de6-4899-b608-c35402402ab7
+		sourceLineageTag: Title
+		summarizeBy: none
+		sourceColumn: Title
+		sortByColumn: PublishedDate
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Descr
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f85bec85-0f3a-435e-b254-9564af3eea3d
+		sourceLineageTag: Descr
+		summarizeBy: none
+		sourceColumn: Descr
+
+		annotation SummarizationSetBy = Automatic
+
+	column LiveStream
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9159fae9-9e26-45a5-992a-b60ee2aa449a
+		sourceLineageTag: LiveStream
+		summarizeBy: none
+		sourceColumn: LiveStream
+
+		annotation SummarizationSetBy = Automatic
+
+	column PublishedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: d63e17e2-216a-4a11-aa99-02a4e81ebe44
+		sourceLineageTag: PublishedDate
+		summarizeBy: none
+		sourceColumn: PublishedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hosts
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 539aadd7-3753-43e0-b1ee-b10cac573b8d
+		sourceLineageTag: Hosts
+		summarizeBy: none
+		sourceColumn: Hosts
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dimvideos = entity
+		mode: directLake
+		source
+			entityName: gold_dimvideos
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

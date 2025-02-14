@@ -1,0 +1,76 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "30a97f8a-dc7b-bde5-4b2a-5ab8bff00862",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Process Calendar",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "177bec54-81a9-a70f-4cf0-49cfac3b8b3e",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Process Channels",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "fb1bac5c-2c20-8d27-47e0-3947b0cf3e8b",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Process Videos",
+        "dependsOn": [
+          {
+            "activity": "Process Channels",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

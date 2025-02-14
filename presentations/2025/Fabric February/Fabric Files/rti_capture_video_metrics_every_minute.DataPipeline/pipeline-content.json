@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "094d157a-84e8-9839-4fb2-7c8e308435e2",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Capture Video State Every Minute",
+        "dependsOn": []
+      }
+    ]
+  }
+}

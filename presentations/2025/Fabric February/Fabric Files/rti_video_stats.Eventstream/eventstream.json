@@ -1,0 +1,45 @@
+{
+  "sources": [
+    {
+      "id": "a2ac6423-69e0-4c12-9ca1-c87b0f846105",
+      "name": "currentvideostats",
+      "type": "CustomEndpoint",
+      "properties": {}
+    }
+  ],
+  "destinations": [
+    {
+      "id": "a7ff5966-a5ae-424b-9818-5118cd090f65",
+      "name": "videominutemetrics",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "DirectIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "21c5172d-034c-ace3-482f-2babd456d98b",
+        "tableName": "videominutemetrics",
+        "connectionName": "rti_video_stats_VideoMetricsByMinute-vid",
+        "mappingRuleName": "videominutemetrics_mapping"
+      },
+      "inputNodes": [
+        {
+          "name": "rti_video_stats-stream"
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "ad30554c-b540-46ec-aa79-4687895690cd",
+      "name": "rti_video_stats-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "currentvideostats"
+        }
+      ]
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.0"
+}

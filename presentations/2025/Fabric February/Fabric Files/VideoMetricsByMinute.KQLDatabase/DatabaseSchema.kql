@@ -1,0 +1,9 @@
+// KQL script
+// Use management commands in this script to configure your database items, such as tables, functions, materialized views, and more.
+
+
+.create-merge table videominutemetrics (video_id:string, morelikes:int, moreviews:int, morecomments:int, currentdate:datetime, currenttime:string) 
+.create-or-alter table videominutemetrics ingestion json mapping 'videominutemetrics_mapping'
+```
+[{"Properties":{"Path":"$['video_id']"},"column":"video_id","datatype":""},{"Properties":{"Path":"$['morelikes']"},"column":"morelikes","datatype":""},{"Properties":{"Path":"$['moreviews']"},"column":"moreviews","datatype":""},{"Properties":{"Path":"$['morecomments']"},"column":"morecomments","datatype":""},{"Properties":{"Path":"$['currentdate']"},"column":"currentdate","datatype":""},{"Properties":{"Path":"$['currenttime']"},"column":"currenttime","datatype":""}]
+```

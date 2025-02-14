@@ -1,0 +1,219 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "ec093030-f5b5-a529-42c3-5f759b7c4ba1",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Capture Channel Stats",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "2c24ba0e-4337-9088-465c-e32a97a1de95",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Capture Video Stats",
+        "dependsOn": []
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:C3DLw9bcoSxi-B_c3JqY22m54hL_ZMFX2IDIb5CjGbE1@thread.tacv2"
+              },
+              "messageBody": "<p>Channel Stats Extracted to Bronze</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Notify Channel Stats Complete",
+        "dependsOn": [
+          {
+            "activity": "Capture Channel Stats",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:C3DLw9bcoSxi-B_c3JqY22m54hL_ZMFX2IDIb5CjGbE1@thread.tacv2"
+              },
+              "messageBody": "<p>Video Stats Captured to Bronze</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Notify Video Stats Completed",
+        "dependsOn": [
+          {
+            "activity": "Capture Video Stats",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "6af31a5b-f138-aee1-4541-acd01a18563f",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "_inlineInstallationEnabled": {
+              "value": "True",
+              "type": "bool"
+            }
+          }
+        },
+        "policy": {
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Capture Video Comments",
+        "dependsOn": []
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:C3DLw9bcoSxi-B_c3JqY22m54hL_ZMFX2IDIb5CjGbE1@thread.tacv2"
+              },
+              "messageBody": "<p>Video Comments Capture to Bronze Successfully</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Notify Comments Captured",
+        "dependsOn": [
+          {
+            "activity": "Capture Video Comments",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:2ea202a24d47463aaa82d298dcfbed48@thread.tacv2"
+              },
+              "messageBody": "<p>Capture Video Stats to Bronze Failed</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Notify Video Stats Failed",
+        "dependsOn": [
+          {
+            "activity": "Capture Video Stats",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:2ea202a24d47463aaa82d298dcfbed48@thread.tacv2"
+              },
+              "messageBody": "<p>Capture Channel Stats to Bronze Failed</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Notify Channel Stats Failed",
+        "dependsOn": [
+          {
+            "activity": "Capture Channel Stats",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Teams",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "recipient": {
+                "groupId": "112f4cae-2d10-4d04-82e0-2795aaed9602",
+                "channelId": "19:2ea202a24d47463aaa82d298dcfbed48@thread.tacv2"
+              },
+              "messageBody": "<p>Capture Comments to Bronze Failed</p>"
+            },
+            "method": "post",
+            "path": "/beta/teams/conversation/message/poster/User/location/Channel"
+          }
+        },
+        "name": "Notify Comments Failed",
+        "dependsOn": [
+          {
+            "activity": "Capture Video Comments",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

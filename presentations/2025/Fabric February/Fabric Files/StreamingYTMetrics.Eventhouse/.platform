@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Eventhouse",
+    "displayName": "StreamingYTMetrics",
+    "description": "StreamingYTMetrics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6feafb32-b678-abb8-4421-e803dc19f3e2"
+  }
+}

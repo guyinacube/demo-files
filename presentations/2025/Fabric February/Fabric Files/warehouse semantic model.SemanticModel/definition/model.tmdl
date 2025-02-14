@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.140.7553.1 (Main)+9c07402ba6e34beacea11f7800c0088075b1cb37
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+ref table DimVideo
+ref table DimChannel
+ref table DimCalendar
+ref table FactChannelStats
+
+ref cultureInfo en-US
+

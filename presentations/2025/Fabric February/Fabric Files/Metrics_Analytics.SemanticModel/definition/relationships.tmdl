@@ -1,0 +1,41 @@
+relationship 54c2ba90-a568-dfd5-7a96-b43d856c0d78
+	fromColumn: gold_factchannelstats.ChannelSK
+	toColumn: gold_dimchannels.ChannelSK
+
+relationship f92663d7-7951-4f0e-a7a7-efe490ea11a5
+	fromColumn: gold_factchannelstats.CaptureDateSK
+	toColumn: gold_calendar.Date
+
+relationship ef3f7ab9-b4c3-7d27-9141-983e099e3747
+	fromColumn: gold_factdailychannelstats.ChannelSK
+	toColumn: gold_dimchannels.ChannelSK
+
+relationship 367fa0d9-6529-e561-d94d-f473df83d888
+	fromColumn: gold_factdailychannelstats.CaptureDateSK
+	toColumn: gold_calendar.Date
+
+relationship e150aeaf-3cae-9c07-c020-89d1b9222310
+	fromColumn: gold_factvideostats.CaptureDateSK
+	toColumn: gold_calendar.Date
+
+relationship 7b4b607d-5d04-1b1c-80fa-6c7733b4a862
+	fromColumn: gold_factvideostats.VideoSK
+	toColumn: gold_dimvideos.VideoSK
+
+relationship fdad6f7a-d43c-a5f6-d346-e5a77c9cfab4
+	fromColumn: gold_factdailyvideostats.CaptureDateSK
+	toColumn: gold_calendar.Date
+
+relationship 64044031-b6ce-92ff-e1df-f3ddb41ba6bd
+	fromColumn: gold_factdailyvideostats.VideoSK
+	toColumn: gold_dimvideos.VideoSK
+
+relationship bb14b6d5-7dbf-56ba-eb8a-cc32a820de16
+	fromColumn: gold_dimvideos.ChannelSK
+	toColumn: gold_dimchannels.ChannelSK
+
+relationship e2c726c7-f3d9-ed88-acdc-0c1054e416df
+	crossFilteringBehavior: bothDirections
+	fromColumn: gold_dimvideo_details.VideoSK
+	toColumn: gold_dimvideos.VideoSK
+
